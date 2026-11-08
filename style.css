@@ -1,0 +1,418 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background: #0b0b0b;
+    color: #e8e8e8;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+}
+
+.noise {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.035;
+    z-index: 10;
+    background-image:
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E");
+}
+
+header {
+    height: 90px;
+    padding: 0 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #252525;
+}
+
+.logo {
+    color: #eeeeee;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 4px;
+}
+
+.logo span {
+    color: #777777;
+}
+
+.header-info {
+    display: flex;
+    gap: 35px;
+    color: #666666;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+main {
+    max-width: 1250px;
+    margin: 0 auto;
+    padding: 100px 6% 80px;
+}
+
+.hero {
+    position: relative;
+    margin-bottom: 110px;
+}
+
+.hero-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 30px;
+    color: #666666;
+    font-size: 10px;
+    letter-spacing: 4px;
+}
+
+.line {
+    display: block;
+    width: 35px;
+    height: 1px;
+    background: #666666;
+}
+
+.hero h1 {
+    max-width: 900px;
+    font-size: clamp(60px, 9vw, 125px);
+    line-height: 0.88;
+    font-weight: 400;
+    letter-spacing: -7px;
+}
+
+.hero h1 span {
+    color: #666666;
+}
+
+.hero-description {
+    margin-top: 45px;
+    color: #777777;
+    font-size: 14px;
+    line-height: 1.7;
+    letter-spacing: 0.3px;
+}
+
+.chapters {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-top: 1px solid #303030;
+    border-left: 1px solid #303030;
+}
+
+.chapter {
+    position: relative;
+    min-height: 270px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-decoration: none;
+    color: #eeeeee;
+    border-right: 1px solid #303030;
+    border-bottom: 1px solid #303030;
+    overflow: hidden;
+    transition: background 0.4s ease, color 0.4s ease;
+}
+
+.chapter::before {
+    content: attr(data-number);
+    position: absolute;
+    right: 20px;
+    bottom: -30px;
+    font-size: 170px;
+    font-weight: 700;
+    line-height: 1;
+    color: #151515;
+    pointer-events: none;
+}
+
+.chapter:hover {
+    background: #eeeeee;
+    color: #0b0b0b;
+}
+
+.chapter:hover::before {
+    color: #dedede;
+}
+
+.chapter-top {
+    display: flex;
+    justify-content: space-between;
+    color: #666666;
+    font-size: 10px;
+    letter-spacing: 3px;
+    position: relative;
+    z-index: 2;
+}
+
+.chapter:hover .chapter-top {
+    color: #777777;
+}
+
+.chapter-bottom {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    position: relative;
+    z-index: 2;
+}
+
+.chapter h2 {
+    font-size: 32px;
+    font-weight: 400;
+    letter-spacing: -1px;
+}
+
+.arrow {
+    font-size: 28px;
+    color: #666666;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.chapter:hover .arrow {
+    color: #0b0b0b;
+    transform: translate(5px, -5px);
+}
+
+footer {
+    height: 70px;
+    padding: 0 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid #252525;
+    color: #555555;
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+.footer-center {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #777777;
+    box-shadow: 0 0 8px #777777;
+}
+
+.text-page {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 70px 6% 120px;
+}
+
+.page-top {
+    display: flex;
+    justify-content: space-between;
+    color: #555555;
+    font-size: 10px;
+    letter-spacing: 3px;
+    margin-bottom: 100px;
+}
+
+.chapter-intro {
+    margin-bottom: 120px;
+}
+
+.chapter-intro .hero-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 30px;
+    color: #666666;
+    font-size: 10px;
+    letter-spacing: 4px;
+}
+
+.chapter-intro h1 {
+    font-size: clamp(60px, 9vw, 115px);
+    font-weight: 400;
+    letter-spacing: -6px;
+    line-height: 0.9;
+}
+
+.chapter-intro p {
+    margin-top: 35px;
+    color: #666666;
+    font-size: 14px;
+}
+
+.poems {
+    border-top: 1px solid #292929;
+}
+
+.poem {
+    position: relative;
+    padding: 75px 0 90px;
+    border-bottom: 1px solid #292929;
+}
+
+.poem-number {
+    color: #555555;
+    font-size: 11px;
+    letter-spacing: 3px;
+    margin-bottom: 22px;
+}
+
+.poem h2 {
+    max-width: 800px;
+    font-size: clamp(32px, 5vw, 55px);
+    line-height: 1;
+    font-weight: 400;
+    letter-spacing: -2px;
+    margin-bottom: 10px;
+}
+
+.poem-date,
+.poem-subtitle {
+    color: #555555;
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-bottom: 50px;
+}
+
+.poem-text {
+    max-width: 680px;
+    margin-left: 12%;
+    color: #c7c7c7;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 18px;
+    line-height: 1.65;
+}
+
+.poem-text p {
+    margin-bottom: 25px;
+}
+
+.poem-text p:last-child {
+    margin-bottom: 0;
+}
+
+.poem-text.english {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    color: #aaaaaa;
+}
+
+.page-navigation {
+    margin-top: 100px;
+    padding-top: 25px;
+    border-top: 1px solid #292929;
+    display: flex;
+    justify-content: space-between;
+}
+
+.page-navigation a {
+    color: #666666;
+    text-decoration: none;
+    font-size: 12px;
+    transition: color 0.3s ease;
+}
+
+.page-navigation a:hover {
+    color: #eeeeee;
+}
+
+@media (max-width: 700px) {
+
+    header {
+        height: 75px;
+        padding: 0 5%;
+    }
+
+    .header-info span:last-child {
+        display: none;
+    }
+
+    main {
+        padding: 70px 5% 60px;
+    }
+
+    .hero {
+        margin-bottom: 70px;
+    }
+
+    .hero h1 {
+        font-size: 58px;
+        letter-spacing: -4px;
+    }
+
+    .hero-description {
+        margin-top: 30px;
+    }
+
+    .chapters {
+        grid-template-columns: 1fr;
+    }
+
+    .chapter {
+        min-height: 220px;
+    }
+
+    .text-page {
+        padding: 50px 5% 80px;
+    }
+
+    .page-top {
+        margin-bottom: 70px;
+    }
+
+    .chapter-intro {
+        margin-bottom: 80px;
+    }
+
+    .chapter-intro h1 {
+        font-size: 58px;
+        letter-spacing: -3px;
+    }
+
+    .poem {
+        padding: 55px 0 65px;
+    }
+
+    .poem h2 {
+        font-size: 35px;
+        letter-spacing: -1px;
+    }
+
+    .poem-text {
+        margin-left: 0;
+        font-size: 17px;
+        line-height: 1.65;
+    }
+
+    .poem-date,
+    .poem-subtitle {
+        margin-bottom: 35px;
+    }
+
+    .page-navigation {
+        margin-top: 70px;
+    }
+
+    footer {
+        padding: 0 5%;
+    }
+
+    footer > span:last-child {
+        display: none;
+    }
+}
+.translation-button { margin-top: 45px; padding: 0; border: none; background: none; color: #555555; font-family: Arial, Helvetica, sans-serif; font-size: 10px; letter-spacing: 3px; cursor: pointer; transition: color 0.3s ease; } .translation-button:hover { color: #eeeeee; } .translation { display: none; margin-top: 55px; padding-top: 35px; border-top: 1px solid #292929; } .translation.open { display: block; } .translation-label { margin-bottom: 35px; color: #555555; font-size: 9px; letter-spacing: 3px; } .translation .poem-text { color: #999999; } @media (max-width: 700px) { .translation-button { margin-top: 35px; } .translation { margin-top: 40px; } }

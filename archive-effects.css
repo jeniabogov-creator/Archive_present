@@ -1,0 +1,8 @@
+
+.archive-film{position:fixed;inset:0;z-index:9990;pointer-events:none;opacity:.15;overflow:hidden;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.92' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.38'/%3E%3C/svg%3E");animation:archiveFlicker 5s steps(2,end) infinite}
+.archive-film:after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(255,255,255,.025),transparent 2px);background-size:100% 4px;opacity:.22}
+@keyframes archiveFlicker{0%,100%{opacity:.12}47%{opacity:.16}49%{opacity:.11}51%{opacity:.15}}
+.archive-cursor{position:fixed;top:0;left:0;width:9px;height:9px;border:1px solid rgba(235,235,235,.9);border-radius:50%;pointer-events:none;z-index:10000;transform:translate(-50%,-50%);transition:width .2s ease,height .2s ease,background .2s ease;mix-blend-mode:difference}
+.archive-cursor.is-hovering{width:25px;height:25px;background:rgba(235,235,235,.12)}
+@media(hover:none),(pointer:coarse){.archive-cursor{display:none}}
+@media(prefers-reduced-motion:reduce){.archive-film{animation:none}}
